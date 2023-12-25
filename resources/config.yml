@@ -1,0 +1,4 @@
+# config.yml
+  settings:
+    max_reports: 50
+    
