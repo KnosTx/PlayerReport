@@ -19,14 +19,14 @@ class Main extends PluginBase implements Listener {
     /** @var array */
     private $reports = [];
 
-    public function onEnable: void() {
+    public function onEnable(): void {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->registerCommands();
         $this->loadReports(); // Load existing reports from storage
         $this->getLogger()->info("PlayerReport has been enabled!");
     }
 
-    public function onDisable: void() {
+    public function onDisable(): void {
         $this->saveReports(); // Save reports to storage
         $this->getLogger()->info("PlayerReport has been disabled!");
     }
