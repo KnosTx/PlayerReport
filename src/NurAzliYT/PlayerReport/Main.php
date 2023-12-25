@@ -1,5 +1,5 @@
 <?php
-
+# namespace
 namespace NurAzliYT\PlayerReport;
 
 use pocketmine\plugin\PluginBase;
@@ -16,7 +16,6 @@ use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener {
 
-    /** @var array */
     private $reports = [];
 
     public function onEnable(): void {
@@ -58,7 +57,7 @@ class Main extends PluginBase implements Listener {
                 $this->processReport($player, $data);
             }
         });
-
+# Form UI
         $form->setTitle("Player Report");
         $form->addInput("Player Name:", "Enter the name of the player you want to report");
         $form->addInput("Reason:", "Briefly describe the reason for your report");
@@ -95,21 +94,23 @@ class Main extends PluginBase implements Listener {
     private function registerCommands(): void {
         $reportCommand = new PluginCommand("report", $this);
         $reportCommand->setDescription("Report a player");
+        $reportCommand->setUsage("/report");
         $this->getServer()->getCommandMap()->register("report", $reportCommand);
 
         $viewReportsCommand = new PluginCommand("viewreports", $this);
         $viewReportsCommand->setDescription("View player reports");
+        $viewReportsCommand->setUsage("/viewreports");
         $this->getServer()->getCommandMap()->register("viewreports", $viewReportsCommand);
     }
 
     private function saveReports(): void {
         $config = new Config($this->getDataFolder() . "reports.yml", Config::YAML);
-        $config->setAll($this->reports);
+        $config->setAll(['reports' => $this->reports]);
         $config->save();
     }
 
     private function loadReports(): void {
         $config = new Config($this->getDataFolder() . "reports.yml", Config::YAML);
-        $this->reports = $config->getAll();
+        $this->reports = $config->get('reports', []);
     }
 }
