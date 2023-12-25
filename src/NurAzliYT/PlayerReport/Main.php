@@ -5,7 +5,7 @@ namespace NurAzliYT\PlayerReport;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
@@ -19,14 +19,14 @@ class Main extends PluginBase implements Listener {
     /** @var array */
     private $reports = [];
 
-    public function onEnable() {
+    public function onEnable: void() {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->registerCommands();
         $this->loadReports(); // Load existing reports from storage
         $this->getLogger()->info("PlayerReport has been enabled!");
     }
 
-    public function onDisable() {
+    public function onDisable: void() {
         $this->saveReports(); // Save reports to storage
         $this->getLogger()->info("PlayerReport has been disabled!");
     }
