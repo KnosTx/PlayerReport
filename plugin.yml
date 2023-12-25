@@ -1,0 +1,21 @@
+name: PlayerReport
+version: 1.0.0
+api: [4.0.0, 4.2.0]
+author: NurAzliYT
+main: NurAzliYT\PlayerReport\Main
+
+depend:
+  - FormAPI
+
+commands:
+  report:
+    description: "Report a player"
+    usage: "/report"
+  viewreports:
+    description: "View player reports"
+    usage: "/viewreports"
+
+config:
+  settings:
+    max_reports: 50
+    
