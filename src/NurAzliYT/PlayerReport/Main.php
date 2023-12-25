@@ -92,12 +92,12 @@ class Main extends PluginBase implements Listener {
     }
 
     private function registerCommands(): void {
-        $reportCommand = new PluginCommand("report", $this);
+        $reportCommand->PluginCommand("report", $this);
         $reportCommand->setDescription("Report a player");
         $reportCommand->setUsage("/report");
         $this->getServer()->getCommandMap()->register("report", $reportCommand);
 
-        $viewReportsCommand = new PluginCommand("viewreports", $this);
+        $viewReportsCommand->PluginCommand("viewreports", $this);
         $viewReportsCommand->setDescription("View player reports");
         $viewReportsCommand->setUsage("/viewreports");
         $this->getServer()->getCommandMap()->register("viewreports", $viewReportsCommand);
