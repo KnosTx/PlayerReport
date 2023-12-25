@@ -1,0 +1,11 @@
+reports:
+  - reporter: "Player1"
+    reportedPlayer: "SuspectPlayer1"
+    reason: "Inappropriate behavior"
+    timestamp: 1641268800
+  - reporter: "Player2"
+    reportedPlayer: "SuspectPlayer2"
+    reason: "Griefing"
+    timestamp: 1641269100
+  # ... (daftar laporan lainnya)
+  
